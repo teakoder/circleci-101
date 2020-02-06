@@ -1,2 +1,3 @@
-# helloci
-Hello CI
+# CircleCI-101
+
+Hello Continuous Integration (CI).
