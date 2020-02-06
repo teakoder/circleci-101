@@ -1,4 +1,3 @@
----
 version: 2
 jobs:
   build1:
@@ -23,8 +22,8 @@ jobs:
       - checkout
       - run: echo "A more familiar hi"
       - attach_workspace:
-        # Must be absolute path or relative path from working_directory
-        at: my_workspace
+          # Must be absolute path or relative path from working_directory
+          at: my_workspace
       - run: |
           if [[ $(cat my_workspace/echo-output) == "Trying out workspaces" ]]; then
             echo "It worked!";
