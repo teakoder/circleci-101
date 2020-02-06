@@ -1,11 +1,13 @@
+---
 version: 2
 jobs:
   build1:
     docker:
-      - image: circleci/node:12 # the primary container, where your job's commands are run
+      # the primary container, where your job's commands are run
+      - image: circleci/node:12
     steps:
-      - checkout # check out the code in the project directory
-      - run: echo "A first hello" # run the `echo` command
+      - checkout  # check out the code in the project directory
+      - run: echo "A first hello"  # run the `echo` command
       - run: mkdir -p my_workspace
       - run: echo "Trying out workspaces" > my_workspace/echo-output
       - persist_to_workspace:
@@ -34,6 +36,6 @@ workflows:
   build1_and_build2:
     jobs:
       - build1
-      - build2
-        requires:
-          - build1
+      - build2:
+          requires:
+            - build1
